@@ -346,31 +346,16 @@ public class ExportDialog extends JDialog {
                     throw new FileAlreadyExistsException(path);
                 }
             }
-
-            Thread saveThread = new Thread(() -> {
-                try {
-                    switch (formatComboBox.getSelectedIndex()) {
-                        case 1:
-                            saveStateLabel.setText("Guardando...");
-                            JSONFactura json = new JSONFactura(selectedFacturaCab);
-                            json.write(new File(path));
-                            saveStateLabel.setText("Guardado");
-                            Thread.sleep(3000);
-                            saveStateLabel.setText("");
-                            break;
-                        case 2:
-                            saveStateLabel.setText("Guardando...");
-                            XMLFactura xml = new XMLFactura(selectedFacturaCab);
-                            xml.write(new File(path));
-                            saveStateLabel.setText("Guardado");
-                            Thread.sleep(3000);
-                            saveStateLabel.setText("");
-                    }
-                } catch (InterruptedException ex) {
-                }
-            });
-
-            saveThread.run();
+            
+            switch (formatComboBox.getSelectedIndex()) {
+                case 1:
+                    JSONFactura json = new JSONFactura(selectedFacturaCab);
+                    json.write(new File(path));
+                    break;
+                case 2:
+                    XMLFactura xml = new XMLFactura(selectedFacturaCab);
+                    xml.write(new File(path));
+            }
         } catch (FileAlreadyExistsException ex) {
         }
 
