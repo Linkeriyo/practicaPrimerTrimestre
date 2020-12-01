@@ -1,9 +1,7 @@
 package controllers;
 
-import java.io.File;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
-import exportmodels.JSONFactura;
 import views.MainFrame;
 
 public class FacturasProgram {

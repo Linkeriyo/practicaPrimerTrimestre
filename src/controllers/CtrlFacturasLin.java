@@ -47,19 +47,7 @@ public class CtrlFacturasLin {
         ss.close();
     }
 
-    public void insertFacturaLin(FacturasLin linea) {
-        // Buscar si hay alguna línea con el artículo
-        updateList();
-        boolean articuloExists = false;
-        for (FacturasLin lf : listaFacturasLin) {
-            if (lf.getId().getNumfac() == linea.getId().getNumfac()) {
-                if (lf.getArticulos().getReferencia().equals(
-                        linea.getArticulos().getReferencia())) {
-                    articuloExists = true;
-                }
-            }
-        }
-
+    public void insertFacturaLin(FacturasLin linea, boolean articuloExists) {
         ss = sf.openSession();
         ss.beginTransaction();
 

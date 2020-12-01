@@ -4,8 +4,12 @@ import controllers.CtrlArticulos;
 import controllers.CtrlFacturasCab;
 import controllers.CtrlFacturasLin;
 import controllers.FacturasProgram;
+import exceptions.DeniedException;
 import exceptions.RequiredFieldException;
 import java.math.BigDecimal;
+import java.nio.file.FileAlreadyExistsException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import models.Articulos;
 import models.FacturasCab;
@@ -215,7 +219,32 @@ public class InsertFacturaLinDialog extends javax.swing.JDialog {
 
             //Insertar la línea
             FacturasLin linea = new FacturasLin(id, articulo, facturaCab, cant, price, dto, iva);
-            cFacturasLin.insertFacturaLin(linea);
+
+            // Buscar si hay alguna línea con el artículo
+            cFacturasLin.updateList();
+            boolean articuloExists = false;
+            for (FacturasLin lf : cFacturasLin.getListaFacturasLin()) {
+                if (lf.getId().getNumfac() == linea.getId().getNumfac()) {
+                    if (lf.getArticulos().getReferencia().equals(
+                            linea.getArticulos().getReferencia())) {
+                        articuloExists = true;
+                    }
+                }
+            }
+            
+            if (articuloExists) {
+                boolean confirmed = JOptionPane.YES_OPTION == JOptionPane.showConfirmDialog(null,
+                        "Ya existe una línea con ese artículo, ¿quieres sumarle la cantidad?",
+                        "Confirmación",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.WARNING_MESSAGE
+                );
+
+                if (!confirmed) {
+                    throw new DeniedException();
+                }
+            }
+            cFacturasLin.insertFacturaLin(linea, articuloExists);
 
             //Actualizar todo lo modificado.
             cFacturasCab.calculateTotalThenGet(facturaCab.getNumfac());
@@ -238,6 +267,7 @@ public class InsertFacturaLinDialog extends javax.swing.JDialog {
                     "Error",
                     JOptionPane.ERROR_MESSAGE
             );
+        } catch (DeniedException ex) {
         }
     }//GEN-LAST:event_acceptButtonActionPerformed
 

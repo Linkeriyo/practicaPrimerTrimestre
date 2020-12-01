@@ -3,7 +3,6 @@ package controllers;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 import javax.swing.JOptionPane;
 import models.FacturasCab;
 import models.FacturasLin;
