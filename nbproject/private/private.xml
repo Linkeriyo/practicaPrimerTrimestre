@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/Drive/2DAM/acceso_a_datos/practica/practicaPrimerTrimestre/src/views/facturas/InsertFacturaLinDialog.java</file>
+            <file>file:/D:/Drive/2DAM/acceso_a_datos/practica/practicaPrimerTrimestre/src/exceptions/DeniedException.java</file>
             <file>file:/D:/Drive/2DAM/acceso_a_datos/practica/practicaPrimerTrimestre/src/views/export/ExportDialog.java</file>
+            <file>file:/D:/Drive/2DAM/acceso_a_datos/practica/practicaPrimerTrimestre/src/exceptions/RequiredFieldException.java</file>
         </group>
     </open-files>
 </project-private>

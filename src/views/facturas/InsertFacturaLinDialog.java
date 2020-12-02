@@ -64,7 +64,7 @@ public class InsertFacturaLinDialog extends javax.swing.JDialog {
         dtoField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Seleccionar factura");
+        setTitle("Insertar línea de factura");
         setModal(true);
         setResizable(false);
 

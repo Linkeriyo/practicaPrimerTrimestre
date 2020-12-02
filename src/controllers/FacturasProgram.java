@@ -11,6 +11,7 @@ public class FacturasProgram {
     public static CtrlFacturasCab cFacturasCab;
     public static CtrlFacturasLin cFacturasLin;
     public static CtrlFacturasTot cFacturasTot;
+    public static CtrlStats cStats;
     
     private static void setLookAndFeel() {
         try {

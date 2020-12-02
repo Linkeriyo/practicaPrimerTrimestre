@@ -47,7 +47,7 @@ public class DeleteFacturaLinDialog extends javax.swing.JDialog {
         selectedFacCabLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Seleccionar factura");
+        setTitle("Eliminar línea de factura");
         setModal(true);
         setResizable(false);
 

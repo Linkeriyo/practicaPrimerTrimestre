@@ -4,6 +4,7 @@ import views.articulos.ArticulosDialog;
 import views.clientes.ClientesDialog;
 import views.export.ExportDialog;
 import views.facturas.FacturasDialog;
+import views.stats.StatsDialog;
 
 public class MainFrame extends javax.swing.JFrame {
 
@@ -93,10 +94,6 @@ public class MainFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void statsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statsButtonActionPerformed
-        
-    }//GEN-LAST:event_statsButtonActionPerformed
-
     private void articulosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_articulosButtonActionPerformed
         ArticulosDialog dialog = new ArticulosDialog(this, true);
         dialog.setVisible(true);
@@ -116,6 +113,11 @@ public class MainFrame extends javax.swing.JFrame {
         ExportDialog dialog = new ExportDialog(this, true);
         dialog.setVisible(true);
     }//GEN-LAST:event_exportButtonActionPerformed
+
+    private void statsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statsButtonActionPerformed
+        StatsDialog dialog = new StatsDialog(this, true);
+        dialog.setVisible(true);
+    }//GEN-LAST:event_statsButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton articulosButton;
